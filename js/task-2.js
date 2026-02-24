@@ -24,3 +24,18 @@ const images = [
     alt: "Lighthouse Coast Sea",
   }
 ];
+
+function imageTemplate(image) {
+  return `       <li>
+        <img class="gallery-item" src="${image.url}" alt="${image.alt}">
+      </li>`;
+};
+function imagesTemplate(arr) {
+  return `${arr.map(imageTemplate).join('')}`;
+};
+
+const markup = imagesTemplate(images);
+
+const containerElem = document.querySelector('.gallery');
+
+containerElem.insertAdjacentHTML("beforeend",markup);
